@@ -9,27 +9,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText text;
-    private EditText emailField;
-    private Button btnSend;
-    private TextView statusLabel;
+    private Button mCheck;
+    private EditText mEmail, mText;
+    private TextView mStatus;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        text = findViewById(R.id.edit_text);
-        btnSend = findViewById(R.id.send_button);
-        emailField = findViewById(R.id.edit_email);
-        statusLabel = findViewById(R.id.text_of_status);
-        btnSend.setOnClickListener(v -> {
-            String email = emailField.getText().toString();
-            Validator<String> emailValidator = new EmailValidator();
-            if (emailValidator.validate(email)) {
-                statusLabel.setText("Succes");
-            } else {
-                statusLabel.setText("Validation Error!!!");
-            }
-        });
-    }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            mCheck = findViewById(R.id.check);
+            mEmail = findViewById(R.id.email);
+            mText = findViewById(R.id.text);
+            mStatus = findViewById(R.id.status);
+            mCheck.setOnClickListener(v -> {
+                String email = mEmail.getText().toString();
+                Validator<String> emailValidator = new EmailValidator();
+                if(emailValidator.validate(email)) {
+                    mStatus.setText(R.string.success);
+                } else {
+                    mStatus.setText(R.string.validation_error);
+                }
+            });
+        }
 }
