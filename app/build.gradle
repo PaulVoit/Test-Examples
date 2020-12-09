@@ -3,6 +3,9 @@ plugins {
 }
 
 android {
+    lintOptions {
+        abortOnError false
+    }
     compileSdkVersion 29
     defaultConfig {
         multiDexEnabled true
