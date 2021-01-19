@@ -37,7 +37,7 @@ public class ActivityForFragmentTest {
 
         @Test
         public void checkLabelSuccess() {
-            onView(withId(R.id.email_fragment)).perform(click(), replaceText("test@test.com"), pressBack());
+            onView(withId(R.id.email_fragment)).perform(click(), replaceText("test@test.com"));
             onView(withId(R.id.check_fragment)).perform(click());
             onView(withId(R.id.status_fragment)).check(matches(withText(R.string.success)));
         }
