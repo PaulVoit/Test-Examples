@@ -19,7 +19,6 @@ public class ActivityForFragmentTest {
     public ActivityScenarioRule<ActivityForFragment> mActivityRule = new ActivityScenarioRule<>(ActivityForFragment.class);
 
         @Test
-
         public void checkLabelText() {
             onView(withId(R.id.status_fragment)).check(matches(withText("...")));
         }

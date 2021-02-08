@@ -36,6 +36,7 @@ public class MainActivityTest {
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityRule = new ActivityScenarioRule<>(MainActivity.class);
 
+
     @Test
     public void checkLabelText() {
         onView(withId(R.id.status)).check(matches(withText("...")));
